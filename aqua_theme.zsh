@@ -1,7 +1,7 @@
 # dracula theme
 
 # tmux
-tmux set -g status-fg "#44475A"
+tmux set -g status-fg "#55FA7B"
 tmux set status-bg "#6272A4"
 
 # nap

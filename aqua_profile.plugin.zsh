@@ -9,6 +9,9 @@ export MANPATH="/usr/local/man:$MANPATH"
 alias py="python"
 alias s="sudo"
 alias b="buku --suggest"
+alias f="felix"
+alias cat="bat"
+alias du="dust"
 
 # nvim
 alias v="nvim"
