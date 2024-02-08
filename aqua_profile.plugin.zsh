@@ -10,8 +10,6 @@ alias py="python"
 alias s="sudo"
 alias b="buku --suggest"
 alias f="felix"
-alias cat="bat"
-alias du="dust"
 
 # nvim
 alias v="nvim"
@@ -22,8 +20,12 @@ alias vnim="nvim"
 # system
 alias tasks="ps aux"
 alias fd="sudo fdisk -l"
-alias du="du -h"
-alias df="df -h"
+alias df="duf"
+alias du="dust"
+alias cat="bat"
+alias ls="exa -l"
+alias top="htop"
+alias cls="clear && ls"
 
 # tmux
 tmux bind -n ^h select-pane -L
@@ -31,8 +33,8 @@ tmux bind -n ^j select-pane -D
 tmux bind -n ^k select-pane -U
 tmux bind -n ^l select-pane -R
 tmux bind -n ^w kill-pane
-tmux bind -n ^\\ split-window -h -c "#{pane_current_path}"
-tmux bind -n \\ split-window -v -c "#{pane_current_path}"
+tmux bind -n C-\\ split-window -h -c "#{pane_current_path}"
+tmux bind -n C-M-\\ split-window -v -c "#{pane_current_path}"
 tmux set -g prefix C-p
 tmux set -g mouse on
 tmux set history-limit 100000
