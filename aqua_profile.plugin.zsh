@@ -27,6 +27,8 @@ alias ls="exa -l"
 alias top="htop"
 alias cls="clear && ls"
 
+bindkey ' ' magic-space
+
 # tmux
 tmux bind -n ^h select-pane -L
 tmux bind -n ^j select-pane -D
