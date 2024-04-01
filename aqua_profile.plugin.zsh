@@ -9,7 +9,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 alias py="python"
 alias s="sudo"
 alias b="buku --suggest"
-alias f="felix"
+alias fx="felix"
 
 # nvim
 alias v="nvim"
@@ -30,14 +30,14 @@ alias cls="clear && ls"
 bindkey ' ' magic-space
 
 # tmux
+tmux set -g prefix C-p
 tmux bind -n ^h select-pane -L
 tmux bind -n ^j select-pane -D
 tmux bind -n ^k select-pane -U
 tmux bind -n ^l select-pane -R
-tmux bind -n ^w kill-pane
-tmux bind -n C-\\ split-window -h -c "#{pane_current_path}"
-tmux bind -n C-M-\\ split-window -v -c "#{pane_current_path}"
-tmux set -g prefix C-p
+tmux bind -n C-w kill-pane # ^w doesn't work
+tmux bind -T prefix \" split-window -v -c "#{pane_current_path}"
+tmux bind -T prefix \' split-window -h -c "#{pane_current_path}"
 tmux set -g mouse on
 tmux set history-limit 100000
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then tmux; fi
