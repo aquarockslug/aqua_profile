@@ -36,8 +36,8 @@ tmux bind -n ^j select-pane -D
 tmux bind -n ^k select-pane -U
 tmux bind -n ^l select-pane -R
 tmux bind -n C-w kill-pane # ^w doesn't work
-tmux bind -T prefix \" split-window -v -c "#{pane_current_path}"
-tmux bind -T prefix \' split-window -h -c "#{pane_current_path}"
+tmux bind -T prefix P split-window -v -c "#{pane_current_path}"
+tmux bind -T prefix p split-window -h -c "#{pane_current_path}"
 tmux set -g mouse on
 tmux set history-limit 100000
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then tmux; fi

@@ -29,6 +29,7 @@ activate() { source ./bin/activate }
 gs() { split_arg "git status" $1 }
 lg() { split_arg lazygit $1 }
 pacmans() { sudo pacman -S $1 }
+search() { ddgr $1 }
 buku-export() { buku -e /mnt/c/Users/aquarock/share/buku_html/bookmarks.html }
 n() { nap $(nap list | peco) | glow }
 cht() { 
