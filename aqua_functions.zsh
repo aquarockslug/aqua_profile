@@ -10,27 +10,26 @@ docs() { ~/home/share/docs/search.sh }
 chmodx() { sudo chmod u+x $1 } 
 dl() { echo $1 >> ~/home/Downloads/dl.txt}
 clip() { 
-	CLIP=$(gum file) 
-	echo Start: ; START=$(gum input --placeholder "00:00:00"); #END=$3
-	echo Duration: ; DURATION=$(gum input --placeholder "00:00:00")
-	# DURATION=$((END-$START))
-	NAME=${CLIP%.*}
-	OUTPUT=$NAME.webm
-	ffmpeg -y -i $CLIP -ss $START -t $DURATION -async -1 $OUTPUT
-	ffmpeg_crt $OUTPUT
-	rm $OUTPUT
-	ffmpeg -y -i ${CLIP%.*}_crt.mp4 -filter_complex "fps=12,scale=480:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=32[p];[s1][p]paletteuse=dither=bayer" ${CLIP%.*}_small.gif
-
-	echo Clipped $DURATION seconds from ${CLIP%.*}
+	CLIP=$1; NAME=${CLIP%.*}; OUTPUT=$NAME.clip.mp4
+	echo Start:; START=$(gum input --placeholder "00:00")
+	echo Duration:; DURATION=$(gum input --placeholder "00:00")
+	ffmpeg -y -i $CLIP -ss 00:$START -t 00:$DURATION -async -1 $OUTPUT
+	echo Clipped $DURATION seconds from $NAME
+}
+gif() {
+	CLIP=$1 
+	ffmpeg -y -i $CLIP -filter_complex "fps=12,scale=480:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=32[p];[s1][p]paletteuse=dither=bayer" ${CLIP%.*}.gif
+	echo Created ${CLIP%.*}
+}
+speedup() {
+	ffmpeg -i $1 -vf "setpts=0.5*PTS" -filter:a "atempo=2" ${1%.*}_fast.mp4
 }
 activate() { source ./bin/activate }
 
 # apps
-gs() { split_arg "git status" $1 }
-lg() { split_arg lazygit $1 }
-pacmans() { sudo pacman -S $1 }
+gs() { "git status" $1 }
+lg() { lazygit $1 }
 search() { ddgr $1 }
-buku-export() { buku -e /mnt/c/Users/aquarock/share/buku_html/bookmarks.html }
 n() { nap $(nap list | peco) | glow }
 cht() { 
   cht.sh $(gum input --placeholder "language...") \

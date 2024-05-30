@@ -29,6 +29,8 @@ alias cls="clear && ls"
 
 bindkey ' ' magic-space
 
+
+
 # tmux
 tmux set -g prefix C-p
 tmux bind -n ^h select-pane -L
