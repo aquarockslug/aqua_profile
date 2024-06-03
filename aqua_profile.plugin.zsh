@@ -4,6 +4,7 @@ source ${0:A:h}/aqua_theme.zsh
 zstyle ':omz:update' mode auto 
 export EDITOR='nvim'
 export MANPATH="/usr/local/man:$MANPATH"
+export DISABLE_AUTO_TITLE='true'
 
 # apps
 alias py="python"
