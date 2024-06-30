@@ -28,3 +28,6 @@ cht() {
   cht.sh $(gum input --placeholder "language...") \
   $(gum input --placeholder "query...") | gum pager  
 }
+devdocs() {
+	nvim -c 'DevdocsOpen' $1 
+}
