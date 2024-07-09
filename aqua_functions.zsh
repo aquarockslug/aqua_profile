@@ -3,6 +3,13 @@
 hist() { peco < $HISTFILE }
 fzfind() { fzf --reverse --multi --preview $'{} \n stat -c %s {} | numfmt --to=iec' }
 chmodx() { sudo chmod u+x $1 } 
+
+# text editing
+ff() {
+	nvim -c "Telescope find_files"
+}
+
+# video editing
 dl() { echo $1 >> ~/home/Downloads/dl.txt}
 clip() { 
 	CLIP=$1; NAME=${CLIP%.*}; OUTPUT=$NAME.clip.mp4
@@ -11,7 +18,6 @@ clip() {
 	ffmpeg -y -i $CLIP -ss 00:$START -t 00:$DURATION -async -1 $OUTPUT
 	echo Clipped $DURATION seconds from $NAME
 }
-
 gif() {
 	CLIP=$1 
 	ffmpeg -y -i $CLIP -filter_complex "fps=12,scale=480:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=32[p];[s1][p]paletteuse=dither=bayer" ${CLIP%.*}.gif
