@@ -4,6 +4,16 @@ hist() { peco < $HISTFILE }
 fzfind() { fzf --reverse --multi --preview $'{} \n stat -c %s {} | numfmt --to=iec' }
 chmodx() { sudo chmod u+x $1 } 
 dl() { echo $1 >> ~/home/Downloads/dl.txt}
+
+# text editing
+vff () {
+	nvim -c "Telescope fd"
+}
+vb () {
+	nvim -c "Telescope file_browser"
+}
+
+# video editing
 clip() { 
 	CLIP=$1; NAME=${CLIP%.*}; OUTPUT=$NAME.clip.mp4
 	echo Start:; START=$(gum input --placeholder "00:00")
@@ -11,7 +21,6 @@ clip() {
 	ffmpeg -y -i $CLIP -ss 00:$START -t 00:$DURATION -async -1 $OUTPUT
 	echo Clipped $DURATION seconds from $NAME
 }
-
 gif() {
 	CLIP=$1 
 	ffmpeg -y -i $CLIP -filter_complex "fps=12,scale=480:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=32[p];[s1][p]paletteuse=dither=bayer" ${CLIP%.*}.gif
@@ -19,6 +28,11 @@ gif() {
 }
 speedup() {
 	ffmpeg -i $1 -vf "setpts=0.5*PTS" -filter:a "atempo=2" ${1%.*}_fast.mp4
+}
+
+# image editing
+optimize_png() {
+	if gum confirm "Optimize $(ls **/*.png | wc -l) files in $(pwd)?"; then for f in **/*.png; do optipng $f; done; fi
 }
 
 lg() { lazygit $1 }
