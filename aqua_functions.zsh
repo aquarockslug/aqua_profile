@@ -11,6 +11,16 @@ ff() {
 
 # video editing
 dl() { echo $1 >> ~/home/Downloads/dl.txt}
+
+# text editing
+vff () {
+	nvim -c "Telescope fd"
+}
+vb () {
+	nvim -c "Telescope file_browser"
+}
+
+# video editing
 clip() { 
 	CLIP=$1; NAME=${CLIP%.*}; OUTPUT=$NAME.clip.mp4
 	echo Start:; START=$(gum input --placeholder "00:00")
@@ -25,6 +35,11 @@ gif() {
 }
 speedup() {
 	ffmpeg -i $1 -vf "setpts=0.5*PTS" -filter:a "atempo=2" ${1%.*}_fast.mp4
+}
+
+# image editing
+optimize_png() {
+	if gum confirm "Optimize $(ls **/*.png | wc -l) files in $(pwd)?"; then for f in **/*.png; do optipng $f; done; fi
 }
 
 lg() { lazygit $1 }
