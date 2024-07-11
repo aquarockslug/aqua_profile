@@ -1,24 +1,21 @@
 # zsh functions
 
+n() { nap $(nap list | peco) | glow }
+dl() { echo $1 >> ~/home/Downloads/dl.txt}
+lg() { lazygit $1 }
+search() { ddgr $1 }
 hist() { peco < $HISTFILE }
 fzfind() { fzf --reverse --multi --preview $'{} \n stat -c %s {} | numfmt --to=iec' }
 chmodx() { sudo chmod u+x $1 } 
+devdocs() { nvim -c 'DevdocsOpen' $1 }
+cht() { 
+  cht.sh $(gum input --placeholder "language...") \
+  $(gum input --placeholder "query...") | gum pager  
+}
 
 # text editing
-ff() {
-	nvim -c "Telescope find_files"
-}
-
-# video editing
-dl() { echo $1 >> ~/home/Downloads/dl.txt}
-
-# text editing
-vff () {
-	nvim -c "Telescope fd"
-}
-vb () {
-	nvim -c "Telescope file_browser"
-}
+vff () { nvim -c "Telescope fd" }
+vb () { nvim -c "Telescope file_browser" }
 
 # video editing
 clip() { 
@@ -38,17 +35,7 @@ speedup() {
 }
 
 # image editing
-optimize_png() {
-	if gum confirm "Optimize $(ls **/*.png | wc -l) files in $(pwd)?"; then for f in **/*.png; do optipng $f; done; fi
-}
-
-lg() { lazygit $1 }
-search() { ddgr $1 }
-n() { nap $(nap list | peco) | glow }
-cht() { 
-  cht.sh $(gum input --placeholder "language...") \
-  $(gum input --placeholder "query...") | gum pager  
-}
-devdocs() {
-	nvim -c 'DevdocsOpen' $1 
+opt_png() {
+	if gum confirm "Optimize $(ls **/*.png | wc -l) files in $(pwd)?"; 
+	then for f in **/*.png; do optipng $f; done; fi
 }
