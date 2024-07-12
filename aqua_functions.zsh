@@ -14,6 +14,7 @@ cht() {
 }
 
 # text editing
+vfw () { nvim -c "Telescope live_grep" }
 vff () { nvim -c "Telescope fd" }
 vb () { nvim -c "Telescope file_browser" }
 
@@ -35,7 +36,11 @@ speedup() {
 }
 
 # image editing
-opt_png() {
-	if gum confirm "Optimize $(ls **/*.png | wc -l) files in $(pwd)?"; 
-	then for f in **/*.png; do optipng $f; done; fi
+optimg() {
+	PNG=false; JPG=false;
+	if gum confirm "Optimize $(ls **/*.png | wc -l) png files in $(pwd)?"; then PNG=true; fi; 
+	if gum confirm "Optimize $(ls **/*.jpg | wc -l) jpeg files in $(pwd)?"; then JPG=true; fi; 
+	if $PNG; then for f in **/*.png; do optipng $f; done; fi;
+	if $JPG; then for f in **/*.jpg; do jpegoptim $f; done; fi;
 }
+find-dupe() {  }
