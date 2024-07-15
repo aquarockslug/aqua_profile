@@ -1,4 +1,5 @@
-# dracula theme
+# AQUA ARCH COLOR THEME
+# script which adds the dracula theme to certain software
 
 # tmux
 tmux set -g status-fg "#55FA7B"
