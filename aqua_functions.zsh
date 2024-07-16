@@ -14,9 +14,9 @@ cht() {
 }
 
 # text editing
-vfw () { nvim -c "Telescope live_grep" }
 vff () { nvim -c "Telescope fd" }
-vb () { nvim -c "Telescope file_browser" }
+vfb () { nvim -c "Telescope file_browser" }
+vfw () { nvim -c "Telescope live_grep" }
 
 # video editing
 clip() { 
