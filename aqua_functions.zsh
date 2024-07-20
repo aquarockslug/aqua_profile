@@ -14,7 +14,8 @@ cht() {
 }
 
 # text editing
-vff () { nvim -c "Telescope fd" }
+vff () { nvim -c "Telescope find_files" }
+vfo () { nvim -c "Telescope oldfiles" }
 vfb () { nvim -c "Telescope file_browser" }
 vfw () { nvim -c "Telescope live_grep" }
 

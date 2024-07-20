@@ -30,10 +30,6 @@ alias ls="exa -l"
 alias top="htop"
 alias cls="clear && ls"
 
-# windows
-alias open="cmd.exe /C start"
-alias explore="explorer.exe"
-
 bindkey ' ' magic-space
 
 # tmux
