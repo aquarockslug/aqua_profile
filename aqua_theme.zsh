@@ -2,8 +2,8 @@
 # script which adds the dracula theme to certain software
 
 # tmux
-tmux set -g status-fg "#55FA7B"
-tmux set status-bg "#6272A4"
+tmux set -g status-fg "#2E2E2E"
+tmux set status-bg "#4E4E4E"
 
 # nap
 export PATH="$PATH:/usr/local/go/bin"
