@@ -4,6 +4,7 @@ source ${0:A:h}/aqua_tmux.zsh
 
 zstyle ':omz:update' mode auto 
 export EDITOR='nvim'
+export BROWSER='firefox'
 export MANPATH="/usr/local/man:$MANPATH"
 export DISABLE_AUTO_TITLE='true'
 
@@ -14,6 +15,7 @@ alias s="sudo"
 alias b="buku --suggest"
 alias fx="felix"
 alias open="wsl-open"
+alias ddgr="ddgr --rev --colors HGgffH"
 
 # nvim
 alias v="nvim"
