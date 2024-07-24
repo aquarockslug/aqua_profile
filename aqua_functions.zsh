@@ -3,11 +3,12 @@
 n() { nap $(nap list | peco) | glow }
 dl() { echo $1 >> ~/home/Downloads/dl.txt}
 lg() { lazygit $1 }
-search() { ddgr $1 }
+search() { ddgr $* }
 hist() { peco < $HISTFILE }
 fzfind() { fzf --reverse --multi --preview $'{} \n stat -c %s {} | numfmt --to=iec' }
-chmodx() { sudo chmod u+x $1 } 
+chmodx() { sudo chmod u+x $* } 
 devdocs() { nvim -c 'DevdocsOpen' $1 }
+PlugUpdate() { nvim -c 'PlugUpdate' }
 cht() { 
   cht.sh $(gum input --placeholder "language...") \
   $(gum input --placeholder "query...") | gum pager  
