@@ -15,7 +15,6 @@ alias s="sudo"
 alias b="buku --suggest"
 alias fx="felix"
 alias open="wsl-open"
-alias ddgr="ddgr --rev --colors HGgffH"
 
 # nvim
 alias v="nvim"

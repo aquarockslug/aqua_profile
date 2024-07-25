@@ -5,6 +5,9 @@
 tmux set -g status-fg "#2E2E2E"
 tmux set status-bg "#4E4E4E"
 
+# ddgr
+export DDGR_COLORS="fHgffH"
+
 # nap
 export PATH="$PATH:/usr/local/go/bin"
 export NAP_DEFAULT_LANGUAGE="md"
