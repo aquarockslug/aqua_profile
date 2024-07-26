@@ -3,7 +3,7 @@
 n() { nap $(nap list | peco) | glow }
 dl() { echo $1 >> ~/home/Downloads/dl.txt}
 lg() { lazygit $1 }
-search() { ddgr $* }
+search() { ddgr --rev $* }
 hist() { peco < $HISTFILE }
 fzfind() { fzf --reverse --multi --preview $'{} \n stat -c %s {} | numfmt --to=iec' }
 chmodx() { sudo chmod u+x $* } 
