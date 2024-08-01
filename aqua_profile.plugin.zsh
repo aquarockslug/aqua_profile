@@ -27,8 +27,11 @@ alias fd="sudo fdisk -l"
 alias df="duf"
 alias du="dust"
 alias cat="bat"
-alias ls="exa -l"
 alias top="htop"
+
+alias ls="exa -l"
+alias lss="exa *"
 alias cls="clear && ls"
+alias clss="clear && lss"
 
 bindkey ' ' magic-space
